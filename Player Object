@@ -1,0 +1,16 @@
+/// initialize variables
+xVel = 0;
+yVel = 0;
+player_speed = 6;
+depth = -15;
+
+health = 3;
+
+/// movement controls
+if(abs(yVel == 0))
+xVel = (Input.right-Input.left) * player_speed;
+if(abs(xVel == 0))
+yVel = (Input.down-Input.up) * player_speed;
+
+x += xVel;
+y += yVel;

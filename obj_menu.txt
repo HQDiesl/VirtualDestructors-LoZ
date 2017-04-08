@@ -1,0 +1,26 @@
+//Draw event
+
+/// draw health bar
+if(instance_exists(obj_player))
+{
+    xt = 352;
+    yt = 352;
+    for(var i = 0; i < obj_player.hp_containers; i++)
+    {
+        ht_index = 0;
+        if(i>7)
+        {
+        xt = 352; // x and y-coordinates here
+        yt = 368;
+        }
+        if(obj_player.hp >= (i+1)*8)
+        {
+            ht_index = 2;
+        }
+        else if(obj_player.hp >= (i+0.5)*8)
+        {
+            ht_index = 1;
+        }
+        draw_sprite_ext(spr_hearts, ht_index, xt+i*20, yt, 1, 1, 0, c_white, 1);
+    }
+}

@@ -1,0 +1,15 @@
+// Create event
+
+///init
+iframes = 0;
+hp = 0;
+damage = 0;
+
+// Step event
+
+
+///iframe check
+if(iframes > 0)
+{
+iframes--;
+}

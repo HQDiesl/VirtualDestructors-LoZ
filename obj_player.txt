@@ -1,0 +1,88 @@
+// Create event
+
+// initialize player without any intial velocity
+vx = 0;
+vy = 0;
+player_speed = 2;
+timer = 0;
+state = "IDLE"
+hp = 24;
+hp_containers = 3;
+hp_max_containers = 15;
+iframes = 0;
+
+// Step
+
+anim_speed = 0.2;
+switch(state)
+{
+    /*case "ATTACK":
+    {
+        image_speed = anim_speed;
+        sprite_index = spr_player_attack;
+        break;
+    }*/
+    case "IDLE":
+    {
+        image_speed = 0;
+        vx = 0;
+        vy = 0;    
+        check_input_all();
+        break;
+    }
+    case "UP":
+    {
+        image_speed = anim_speed;
+        sprite_index = spr_player;
+        image_xscale = 1;
+        vx = 0;
+        vy = -1 * player_speed;
+        check_input_all();
+        break;
+    }
+    case "DOWN":
+    {
+        image_speed = anim_speed;
+        sprite_index = spr_player;
+        image_xscale = 1;
+        vx = 0;
+        vy = player_speed;
+        check_input_all();
+        break;
+    }
+    case "LEFT":
+    {
+        image_speed = anim_speed;
+        sprite_index = spr_player;
+        image_xscale = -1;
+        vx = -1 * player_speed;
+        vy = 0;
+        check_input_all();
+        break;
+    }
+    case "RIGHT":
+    {
+        image_speed = anim_speed;
+        sprite_index = spr_player;
+        image_xscale = 1;
+        vx = player_speed;
+        vy = 0;
+        check_input_all();
+        break;
+    }
+}
+
+check_collision(vx, vy, obj_solid);
+
+/// iframe timer
+if(iframes > 0)
+{
+    iframes--;
+}
+
+///collide with enemy
+if(iframes = 0)
+{
+    iframes =30;
+    hp -= other.damage;
+}
